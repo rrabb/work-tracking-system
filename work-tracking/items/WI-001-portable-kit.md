@@ -5,8 +5,8 @@
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
 - **Progress as of 261106:** Phase 1 is accepted. A cleanup pass applied decision 16c, restored a missing writing-style rule, and moved the full decision record into this topic. Phase 2 has not started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
-- **Next:** [question] The dev approves the first commit. Phase 2 waits for a separate approval.
-- **Work in progress right now:** None. Files are uncommitted.
+- **Next:** Phase 2 waits for the dev's approval.
+- **Work in progress right now:** None. Phase 1, the cleanup pass and the stamp are committed.
 
 ## Original goal
 
@@ -25,7 +25,7 @@ Build a portable work-tracking kit that can be copied into solo projects, then t
 | Finding | Evidence label | Source |
 | --- | --- | --- |
 | Phase 1 covers reusable templates and this repository's initial tracking files. | Documented | Approved Phase 1 file list |
-| The kit repository has no commits yet, so the template handbook uses a `<commit>` stamp placeholder. | Observed here | `git status --short --branch` before Phase 1 |
+| The template handbook keeps the `<commit>` stamp placeholder for install time. The kit's own copy is stamped `dd6e59a`, the commit that added the templates. The two handbooks differ only on that line. | Observed here | `git log` after the first commits |
 
 ## Decisions and tradeoffs
 
@@ -86,9 +86,7 @@ Phase 1 was accepted on 261106. The collaboration copy uses Do now and Resume po
 
 ## Resume point
 
-1. Wait for the dev to approve the first commit.
-2. After it, propose a second commit that fills the real hash into the stamp in `work-tracking/handbook.md` only. The template keeps `<commit>`.
-3. Wait for a separate approval before Phase 2: procedures, prompt wrappers, `INSTALL.md`, and `README.md`.
+Wait for the dev's approval before Phase 2: procedures, prompt wrappers, `INSTALL.md`, and `README.md`.
 
 ## References
 

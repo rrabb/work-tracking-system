@@ -1,6 +1,6 @@
 # Work-tracking handbook
 
-Copied from work-tracking-system at <commit> on <YYMMDD>
+Copied from work-tracking-system at dd6e59a on 261106
 
 How to keep the [dashboard](dashboard.md) and topic files useful. The dashboard says what to do. Topics remember why.
 
