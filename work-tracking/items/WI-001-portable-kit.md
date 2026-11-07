@@ -3,9 +3,9 @@
 ## At a glance
 
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
-- **Progress as of 261106:** Phase 1 is accepted. A cleanup pass applied decision 16c, restored a missing writing-style rule, and moved the full decision record into this topic, with D1-D5 approved and every decision given a reason. Phase 2 has not started.
+- **Progress as of 261106:** Phase 1 is accepted. The original decision and research documents are preserved in `work-tracking/notes/`. D1-D5 are approved, and every decision has a reason. Phase 2 has not started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
-- **Next:** Phase 2 waits for the dev's approval.
+- **Next:** Resume Phase 2 only after the dev approves it.
 - **Work in progress right now:** None. Phase 1, the cleanup pass, the stamp and the decision-record fix are committed.
 
 ## Original goal
@@ -87,12 +87,14 @@ Phase 1 was accepted on 261106. The collaboration copy uses Do now and Resume po
 
 ## Resume point
 
-Wait for the dev's approval before Phase 2: procedures, prompt wrappers, `INSTALL.md`, and `README.md`.
+Phase 2 remains paused. Wait for the dev's approval before writing the six procedures and wrappers, `INSTALL.md`, or `README.md`. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
 
 ## References
 
 - [Handbook template](../../template/work-tracking/handbook.md)
 - [AGENTS block template](../../template/AGENTS-block.md)
+- [Decision source](../notes/decisions-source.md)
+- [Research and inventory](../notes/inventory-and-options.md)
 
 ## Notes
 
