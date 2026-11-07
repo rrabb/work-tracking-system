@@ -44,6 +44,8 @@ Progress as of <YYMMDD>: <completed> of <total> done
 
 ## References
 
+Link to `notes/` files when relevant.
+
 ## Notes
 
 ### <YYMMDD> - <one-line summary>

@@ -61,6 +61,7 @@ Approved by the dev on 261106. Numbers match the original plan, copied under [No
 | 17a | Writing style is always installed as a `.github/instructions/` file | Tracking files are written in this style. Without it, entries drift (inferred, not confirmed) |
 | 17b | The install prompt offers the commit hook per project | The hook needs Node in the target project (inventory row 11) |
 | 18 | Tracking this work: WI-050 in copilot-chat-exporter, WI-040 superseded. The kit tracks itself in its own `work-tracking/` | The kit uses the system it provides |
+| 19 | Planning and research sources go in `notes/`. The check script skips `notes/` when checking topic links. | Keeps source records with tracking and prevents them from being treated as topic targets |
 | O1 | Writing style source: the dev's working copy, but keep "Cut detail the reader doesn't need. Say each thing once." | The dev's choice |
 | O2 | The kickoff-prompt override goes in the kit's AGENTS block. User prefs stay unchanged | Later refined: the dev chose to also align the project copy of `collaboration.md` (see Phase 1 rows) |
 | O3 | Version stamp: one line at the top of the project's `handbook.md`: "Copied from work-tracking-system at <commit> on <YYMMDD>" | Shows which kit version a copy came from, because there's no upgrade path (inferred, not confirmed). The installer fills it in. The template keeps the placeholder |

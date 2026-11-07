@@ -19,6 +19,7 @@ How to keep the [dashboard](dashboard.md) and topic files useful. The dashboard 
 | Ideas not yet reviewed | Dashboard Inbox |
 | Dropped and rejected ideas, with reasons | Dashboard closed lookup |
 | Goal, done when, work tree, findings, decisions, evidence, notes | Topic |
+| Research and planning sources | `notes/`. Read only when a topic links to one |
 | Project behavior | Project documentation |
 | Old history | Archive, if the project has one |
 
