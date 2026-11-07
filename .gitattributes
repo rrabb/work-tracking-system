@@ -1,1 +1,3 @@
-* -text
+# Pinning LF prevents CRLF working copies from core.autocrlf=true causing whole-file diffs, and lets files copy cleanly to and from copilot-chat-exporter, which pins LF too.
+* text=auto eol=lf
+*.md text eol=lf
