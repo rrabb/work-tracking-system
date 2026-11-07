@@ -95,6 +95,10 @@ Wait for the dev's approval before Phase 2: procedures, prompt wrappers, `INSTAL
 
 ## Notes
 
+### 261106-2255 - Git line endings and scratch output
+
+Added `.gitattributes` with `* -text` so Git preserves each file's line endings regardless of the global `core.autocrlf` setting. The existing topic file was normalized once to its committed LF form to avoid an all-lines diff. Added `/temp-tool-output/` to `.gitignore` for root-level scratch output.
+
 ### 261106-2243 - Decision record gaps closed
 
 A critique of the cleanup pass found two gaps. The dev approved D1-D5, which the plan had listed as proposals. The dev also approved agent-drafted reasons for the 21 decisions that had none. Those reasons are marked "inferred, not confirmed".
