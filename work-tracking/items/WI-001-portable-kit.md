@@ -3,10 +3,10 @@
 ## At a glance
 
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
-- **Progress as of 261106:** Phase 1 is accepted. A cleanup pass applied decision 16c, restored a missing writing-style rule, and moved the full decision record into this topic. Phase 2 has not started.
+- **Progress as of 261106:** Phase 1 is accepted. A cleanup pass applied decision 16c, restored a missing writing-style rule, and moved the full decision record into this topic, with D1-D5 approved and every decision given a reason. Phase 2 has not started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
 - **Next:** Phase 2 waits for the dev's approval.
-- **Work in progress right now:** None. Phase 1, the cleanup pass and the stamp are committed.
+- **Work in progress right now:** None. Phase 1, the cleanup pass, the stamp and the decision-record fix are committed.
 
 ## Original goal
 
@@ -29,50 +29,50 @@ Build a portable work-tracking kit that can be copied into solo projects, then t
 
 ## Decisions and tradeoffs
 
-Approved by the dev on 261106. Numbers match the original plan, copied under [Notes](#notes). "Not recorded" means the plan gives no reason; don't invent one.
+Approved by the dev on 261106. Numbers match the original plan, copied under [Notes](#notes). Reasons marked "inferred, not confirmed" were drafted by an agent and approved by the dev in the 261106 cleanup. Treat them as best guesses. D1-D5 came from the plan's "Proposed design" and "Proposed phases" sections; the dev approved them in the same cleanup.
 
 | # | Decision | Why |
 | --- | --- | --- |
 | 1 | Approach: lean kit, then pilot it on real projects | Existing tools don't fit: Backlog.md needs a CLI and lacks Inbox triage, Closed lookup and ask-before-close rules. Beads is built for many concurrent agents (inventory section 4) |
-| 2 | Pilot order: codebase-context, then vsc-chat-tool, then proj-ent-cfg-test. Later: cpe-exb | Not recorded |
-| 3 | Fully self-contained, with the collaboration layer opt-in per project | User prefs live outside the repo, so other projects get them only on the dev's machine (inventory row 7). Opt-in reason not recorded |
+| 2 | Pilot order: codebase-context, then vsc-chat-tool, then proj-ent-cfg-test. Later: cpe-exb | Start with the project most like the exporter and least risky, then widen. cpe-exb is last because it's shared and needs private mode first (inferred, not confirmed) |
+| 3 | Fully self-contained, with the collaboration layer opt-in per project | User prefs live outside the repo, so other projects get them only on the dev's machine (inventory row 7). Opt-in: some projects or other people may not want the dev's personal working style applied (inferred, not confirmed) |
 | 4 | Shared repos (private tracking): deferred until after real-world use | Tracking in cpe-exb and other shared repos is only for the dev and must never be shared. The private mode needs design first |
 | 4b | Solo repos commit tracking with the code | Same as today's practice |
 | 5 | Packaging: copy-in kit | Simple, works in any harness that reads AGENTS.md, and each project stays self-contained. Accepted cost: copies drift and upgrades are manual (inventory option A) |
-| 6 | Kit source: its own repo, `work-tracking-system` | Not recorded |
-| 7 | Handbook: port as is, strip project-specific lines | Not recorded. Known cost: the handbook grew to 1,935 words, and every project pays that reading cost (inventory conflict 5) |
-| 8 | Installed layout: one folder, `work-tracking/` | Not recorded |
-| 9 | Updates: no upgrade path. Each copy is a fork | Not recorded. An upgrade prompt is deferred until drift hurts |
-| 9b | Project tweaks: edit the project's own handbook copy. No `project-rules.md` | Not recorded |
-| 10 | copilot-chat-exporter stays as is. Improvements land in the kit first, then get hand-copied | Not recorded |
-| 11 | Import sources: all 7 (Markdown task files, work logs, code comments grouped per file, CHANGELOG Unreleased, GitHub issues/PRs, past chats, Git history) | Not recorded |
-| 12a | Import asks which sources to use at the start of each run | Not recorded |
-| 12b | The dev picks where each approved item lands: WI row or Inbox | Not recorded |
-| 12c | Import leaves source files untouched | Not recorded |
-| 13 | Prompts: install, import, status, wrap-up, triage, critique | Wrap-up borrows an idea from ai-tasks (inventory section 4). Others not recorded |
-| 13b | Prompt format: plain Markdown procedure plus a thin VS Code `.prompt.md` wrapper | Not recorded |
+| 6 | Kit source: its own repo, `work-tracking-system` | Kit changes get their own history and don't mix with exporter commits (inferred, not confirmed) |
+| 7 | Handbook: port as is, strip project-specific lines | Fastest path to a working kit. Trim later from pilot evidence, not guesses (inferred, not confirmed). Known cost: the handbook grew to 1,935 words, and every project pays that reading cost (inventory conflict 5) |
+| 8 | Installed layout: one folder, `work-tracking/` | Easy to find, copy, and remove. Keeps the project root clean (inferred, not confirmed) |
+| 9 | Updates: no upgrade path. Each copy is a fork | An upgrade tool costs more than hand-copying while only a few projects use the kit (inferred, not confirmed). An upgrade prompt is deferred until drift hurts |
+| 9b | Project tweaks: edit the project's own handbook copy. No `project-rules.md` | One file to read. A separate rules file adds a merge question to every session (inferred, not confirmed) |
+| 10 | copilot-chat-exporter stays as is. Improvements land in the kit first, then get hand-copied | Avoids churn in a working project. The kit proves changes first (inferred, not confirmed) |
+| 11 | Import sources: all 7 (Markdown task files, work logs, code comments grouped per file, CHANGELOG Unreleased, GitHub issues/PRs, past chats, Git history) | Each project keeps its open work in different places. Missing a source loses work (inferred, not confirmed) |
+| 12a | Import asks which sources to use at the start of each run | Some sources are slow or private (past chats, GitHub). The dev chooses per run (inferred, not confirmed) |
+| 12b | The dev picks where each approved item lands: WI row or Inbox | Only the dev knows what's committed work versus an idea (inferred, not confirmed) |
+| 12c | Import leaves source files untouched | Import is read-only on source files. Nothing is lost if the import is wrong (inferred, not confirmed) |
+| 13 | Prompts: install, import, status, wrap-up, triage, critique | Wrap-up borrows an idea from ai-tasks (inventory section 4). Status, triage and critique already exist in the exporter. Install and import are new needs (inferred, not confirmed) |
+| 13b | Prompt format: plain Markdown procedure plus a thin VS Code `.prompt.md` wrapper | The procedure works in any harness. The wrapper adds the VS Code slash command (inferred, not confirmed) |
 | 14 | Collaboration switch: a `Collaboration style: on/off` line in AGENTS.md | Matches the existing `Project mode:` line |
-| 14b | Collaboration default: on | Not recorded |
-| 15 | Check script: Node `.mjs`, zero dependencies | Not recorded. The inventory flagged that language matters for projects without Node |
+| 14b | Collaboration default: on | The kit's main user is the dev, who wants it on (inferred, not confirmed) |
+| 15 | Check script: Node `.mjs`, zero dependencies | Node is already in the dev's projects. No install step (inferred, not confirmed). The inventory flagged that language matters for projects without Node |
 | 15b | WI-040 (check script) moves to the kit repo | The kit builds the check script |
 | 16a | No kickoff prompt. Do now plus Resume point are the handoff | Resolves the conflict between the user prefs and copilot-chat-exporter's AGENTS.md (inventory conflict 1) |
 | 16b | Evidence labels: the handbook's 5, including "From past chat" | The handbook and writing style had different lists. The kit needs one (inventory conflict 2) |
 | 16c | `Tracking:` goes on the last line of the reply, or just above `Evidence:` when present | Works when Collaboration style is off and no `Evidence:` line exists (dev, 261106 cleanup) |
-| 17a | Writing style is always installed as a `.github/instructions/` file | Not recorded |
+| 17a | Writing style is always installed as a `.github/instructions/` file | Tracking files are written in this style. Without it, entries drift (inferred, not confirmed) |
 | 17b | The install prompt offers the commit hook per project | The hook needs Node in the target project (inventory row 11) |
 | 18 | Tracking this work: WI-050 in copilot-chat-exporter, WI-040 superseded. The kit tracks itself in its own `work-tracking/` | The kit uses the system it provides |
 | O1 | Writing style source: the dev's working copy, but keep "Cut detail the reader doesn't need. Say each thing once." | The dev's choice |
 | O2 | The kickoff-prompt override goes in the kit's AGENTS block. User prefs stay unchanged | Later refined: the dev chose to also align the project copy of `collaboration.md` (see Phase 1 rows) |
-| O3 | Version stamp: one line at the top of the project's `handbook.md`: "Copied from work-tracking-system at <commit> on <YYMMDD>" | Not recorded. The installer fills it in. The template keeps the placeholder |
-| O4 | Kit repo remote: local Git only. Decide on GitHub after the pilot | Not recorded |
+| O3 | Version stamp: one line at the top of the project's `handbook.md`: "Copied from work-tracking-system at <commit> on <YYMMDD>" | Shows which kit version a copy came from, because there's no upgrade path (inferred, not confirmed). The installer fills it in. The template keeps the placeholder |
+| O4 | Kit repo remote: local Git only. Decide on GitHub after the pilot | Nothing to share before the pilot proves the kit (inferred, not confirmed) |
 | O5 | Check script: minimal version (dashboard anchors, topic links) before the pilot, full version after | Full scope also covers Closed lookup rows, statuses, and line links that point at non-blank lines on pinned commits |
-| O6 | Agents work on the kit in its own VS Code window | Not recorded |
-| O7 | Non-Git pilots get `git init` and a first commit before install, after a secrets check. The read-only rule on vsc-chat-tool is lifted for its pilot only | Not recorded |
-| D1 | Kit layout: `README.md`, `INSTALL.md`, `template/` (handbook, dashboard, topic template, collaboration, procedures, check script, AGENTS block, writing style, prompt wrappers, commit hook), and the kit's own `work-tracking/` | Proposed design in the plan. Full table under Notes |
-| D2 | Install never overwrites an existing AGENTS.md, `.github/copilot-instructions.md` or writing-style file. It merges or asks | Proposed design in the plan |
-| D3 | Install asks: Project mode, dashboard area names, commit hook yes/no | Proposed design in the plan |
-| D4 | Install runs `git status` first, and stops and asks if the target has uncommitted changes | Proposed design in the plan |
-| D5 | Phases: 1 templates; 2 procedures, wrappers, INSTALL, README; 3 minimal check script; 4 pilot on codebase-context; 5 lessons, then other pilots. Each phase needs dev approval | About 6-9 h through the first pilot (inferred estimate in the plan) |
+| O6 | Agents work on the kit in its own VS Code window | The agent loads the kit's own AGENTS.md and doesn't edit the exporter by mistake (inferred, not confirmed) |
+| O7 | Non-Git pilots get `git init` and a first commit before install, after a secrets check. The read-only rule on vsc-chat-tool is lifted for its pilot only | The kit needs Git for history and commits. The secrets check stops a first commit from leaking credentials (inferred, not confirmed) |
+| D1 | Kit layout: `README.md`, `INSTALL.md`, `template/` (handbook, dashboard, topic template, collaboration, procedures, check script, AGENTS block, writing style, prompt wrappers, commit hook), and the kit's own `work-tracking/` | Proposed design in the plan. Full table under Notes. Approved by the dev 261106 (cleanup) |
+| D2 | Install never overwrites an existing AGENTS.md, `.github/copilot-instructions.md` or writing-style file. It merges or asks | Proposed design in the plan. Approved by the dev 261106 (cleanup) |
+| D3 | Install asks: Project mode, dashboard area names, commit hook yes/no | Proposed design in the plan. Approved by the dev 261106 (cleanup) |
+| D4 | Install runs `git status` first, and stops and asks if the target has uncommitted changes | Proposed design in the plan. Approved by the dev 261106 (cleanup) |
+| D5 | Phases: 1 templates; 2 procedures, wrappers, INSTALL, README; 3 minimal check script; 4 pilot on codebase-context; 5 lessons, then other pilots. Each phase needs dev approval | About 6-9 h through the first pilot (inferred estimate in the plan). Approved by the dev 261106 (cleanup) |
 | P1 | Phase 1 seeds one `Kit` area and no kit-root `AGENTS.md` | Dev's choice at the Phase 1 file-list approval |
 | P2 | The project copy of `collaboration.md` uses Do now plus Resume point as the handoff. The user-level prefs stay unchanged | Avoids two installed files that contradict each other |
 | C1 | Add a kit-root pointer `AGENTS.md` (Project mode: prototype, Collaboration style: on). Reverses P1's "no kit-root AGENTS.md" | Without it, fresh chats here don't load the tracking rules. Accepted cost: a fourth copy of the tracking bullets that can drift (dev, 261106 cleanup) |
@@ -94,6 +94,10 @@ Wait for the dev's approval before Phase 2: procedures, prompt wrappers, `INSTAL
 - [AGENTS block template](../../template/AGENTS-block.md)
 
 ## Notes
+
+### 261106-2243 - Decision record gaps closed
+
+A critique of the cleanup pass found two gaps. The dev approved D1-D5, which the plan had listed as proposals. The dev also approved agent-drafted reasons for the 21 decisions that had none. Those reasons are marked "inferred, not confirmed".
 
 ### 261106-2231 - Cleanup pass after review
 
