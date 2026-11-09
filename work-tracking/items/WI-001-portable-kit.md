@@ -5,8 +5,8 @@
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
 - **Progress as of 261109:** Phase 1 and Phase 2 assets are complete. The checker accepts an optional tracking-directory path and passes on the template, this repository's tracking, and the bad-link fixture. The codebase-context sandbox succeeded. Round 2 on a non-Git vsc-chat-tool copy tested an existing `AGENTS.md`; Decision 24, including Part B, was approved on 261109. The pilot has not started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
-- **Next:** After this change is approved and committed, pilot install on the isolated codebase-context-WTS-1109 copy in a separate VS Code window.
-- **Work in progress right now:** Waiting for review and approval of the checker changes before commit.
+- **Next:** Pilot install on the isolated codebase-context-WTS-1109 copy in a separate VS Code window.
+- **Work in progress right now:** Pilot install is queued; run `/wt-install` in the separate VS Code window.
 
 ## Original goal
 
@@ -95,7 +95,7 @@ The minimal `template/work-tracking/check-tracking.mjs` checks dashboard WI anch
 
 ## Resume point
 
-After the checker change is approved and committed, set Do now to the pilot install on `C:\_DEV\_sandbox\codebase-context-WTS-1109` in a separate VS Code window using `/wt-install`. Keep the real project untouched. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
+Run `/wt-install` in a separate VS Code window on the fresh copy at `C:\_DEV\_sandbox\codebase-context-WTS-1109`. Keep the real project untouched. The install's proposed file list and Git status must be reviewed before any changes. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
 
 ## References
 
