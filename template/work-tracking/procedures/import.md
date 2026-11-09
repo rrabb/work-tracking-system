@@ -9,9 +9,10 @@ Scan approved sources for work that is not already tracked. Keep source files un
    - Markdown task and backlog files.
    - Work logs.
    - `TODO` and `FIXME` code comments, grouped by source file.
+   - TODO/FIXME markers quoted inside Markdown documents as `[research]` candidates.
    - The `Unreleased` section of `CHANGELOG`.
    - GitHub issues and pull requests.
-   - Past chat sessions.
+   - Past chat sessions. Search by repository name and remote URL as well as folder path, since a moved or copied repository has a different path.
    - Git history.
 3. Confirm access to each selected source. Mark inaccessible sources as unavailable. Don't silently replace them with another source.
 4. Ask before accessing private or remote sources when the harness needs extra access.

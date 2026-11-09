@@ -53,6 +53,8 @@ Show the dev the complete proposed file list and any existing paths that would b
 
 Copy the contents of `template/work-tracking/` into the target's `work-tracking/`, the five remaining files in `template/.github/prompts/` into `.github/prompts/`, and `template/.github/instructions/writing-style.instructions.md` into the same path under the target. Do not copy `prompts/wt-install.prompt.md`; it is a user prompt for the kit developer. Replace the dashboard's area placeholder with the names the dev chose, using one area heading and table per name.
 
+In the copied dashboard, replace `Updated <YYMMDD>` with the local install date in `YYMMDD` format.
+
 Prepare `AGENTS.md` from `template/AGENTS-block.md`: replace the Project mode placeholder with the chosen mode and remove the opening merge-instruction comment. Apply the matching rule in Target types. Preserve all existing content; do not replace the file.
 
 The kit does not provide `.github/copilot-instructions.md`. Leave any existing file at that path untouched. If a change there seems necessary, stop and ask before proposing a merge.
@@ -71,10 +73,12 @@ In the target copy of `work-tracking/handbook.md`, replace the version stamp pla
 Copied from work-tracking-system at <7-character commit> on <YYMMDD>
 ```
 
-The template's placeholders stay unchanged. Installed files take the target project's own line-ending policy. Follow the target's `.gitattributes` and other repository settings; do not copy the kit's line-ending rules or change global Git configuration.
+The template's placeholders stay unchanged. Installed files take the target project's own line-ending policy. Follow the target's `.gitattributes` when present. Without a `.gitattributes`, follow the target's existing files and `core.autocrlf` setting. Do not copy the kit's line-ending rules or change global Git configuration.
 
 ## 5. Finish
 
 Show the files created or merged, the Project mode and dashboard areas selected, whether the hook was installed, the handbook stamp, and the final target `git status`. Report any conflicts or skipped steps. Do not stage or commit the installation unless the dev separately asks.
 
 Then check whether the project has TODO/FIXME comments, backlog or task files, a `CHANGELOG` Unreleased section, or open GitHub issues. Report what is present and what could not be checked. If any are present, offer to run the import procedure. Do not run it without the dev's approval.
+
+Do not create a WI row for the installation itself.

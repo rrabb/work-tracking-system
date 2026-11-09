@@ -158,6 +158,8 @@ Don't paste routine command output, test totals or transcripts.
 
 ## Topic layout
 
+Name topic files `WI-NNN-short-name.md`, with uppercase `WI`, a three-digit ID, and a short descriptive name.
+
 | Section | Content |
 | --- | --- |
 | At a glance | About 15 lines: goal, tree progress, decisions made, next step, work in progress right now. No status words; the dashboard owns status |
