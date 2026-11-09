@@ -6,7 +6,7 @@ Updated 261109. Read the [handbook](handbook.md) before changing tracking.
 
 ## Start here
 
-**Do now:** None.
+**Do now:** [build] WI-001 — Build the minimal check script for dashboard anchors and topic links, skipping `notes/`.
 
 **Decisions you owe:** None. Phase 2 is paused.
 
@@ -22,7 +22,7 @@ Updated 261109. Read the [handbook](handbook.md) before changing tracking.
 
 | Item | What it is | Status | Type | Who | Size | Do after | Links |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Waits for the dev's acceptance of the follow-up changes. | ⏳ Waiting · Medium | [build] | both | L | - | Phase 1 accepted |
+| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | 🔜 Next · Medium | [build] | both | L | - | Phase 1 accepted |
 
 ## Inbox
 
