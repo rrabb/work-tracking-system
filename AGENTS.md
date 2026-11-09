@@ -17,5 +17,5 @@ When `Collaboration style: on`, also read `work-tracking/collaboration.md`. When
 - **Completion check:** Before reporting completion, run the handbook's Completion check. If tracking can't be updated, report the task as incomplete and explain why.
 - **Closing:** Do not close an item without the dev's confirmation. Finishing requested work is not approval to close it. Set it to Waiting for acceptance and ask what to check.
 - **Rabbit holes:** Make new work a child WI with one `Part of` parent and any `Do after` items. Add it to the parent's Work tree and update its progress line.
-- **Handoff:** Use dashboard Do now and the active topic's Resume point. Do not add a kickoff prompt.
+- **Handoff:** Use dashboard Do now and the active topic's Resume point. Do not add a kickoff prompt. When you stop before the work is done, follow Pausing work in the handbook.
 - **Git safety:** Never stage, commit, push, delete, or rewrite history without the dev's approval.

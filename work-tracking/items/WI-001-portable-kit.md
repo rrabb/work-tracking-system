@@ -3,10 +3,10 @@
 ## At a glance
 
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
-- **Progress as of 261106:** Phase 1 is accepted. The original decision and research documents are preserved in `work-tracking/notes/`. D1-D5 are approved, and every decision has a reason. Phase 2 has not started.
+- **Progress as of 261106:** Phase 1 is accepted. Phase 2 Parts A-H are drafted: the pause rule, four procedures, six prompts, `INSTALL.md`, the hook, and `README.md`. Decisions 19-21 are recorded. No check script or pilot has started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
-- **Next:** Resume Phase 2 only after the dev approves it.
-- **Work in progress right now:** None. Phase 1, the cleanup pass, the stamp and the decision-record fix are committed.
+- **Next:** Review the Phase 2 diff and status, then approve commit groups. After the approved commits, decide whether to continue to the check script.
+- **Work in progress right now:** Phase 2 Parts A-H are drafted and uncommitted.
 
 ## Original goal
 
@@ -15,7 +15,7 @@ Build a portable work-tracking kit that can be copied into solo projects, then t
 ## Done when
 
 - [ ] The kit includes a handbook, templates, collaboration guidance, and writing-style instructions.
-- [ ] The kit includes install, import, status, wrap-up, triage, and critique procedures with thin VS Code prompt wrappers.
+- [ ] The kit includes six prompts and four procedures plus `INSTALL.md`; the pause prompt points to the handbook rule.
 - [ ] The install guide and README explain how to copy the kit into a project.
 - [ ] The zero-dependency Node check script covers dashboard anchors and topic links before the pilot.
 - [ ] The kit passes a pilot on codebase-context, followed by vsc-chat-tool and proj-ent-cfg-test.
@@ -49,7 +49,7 @@ Approved by the dev on 261106. Numbers match the original plan, copied under [No
 | 12a | Import asks which sources to use at the start of each run | Some sources are slow or private (past chats, GitHub). The dev chooses per run (inferred, not confirmed) |
 | 12b | The dev picks where each approved item lands: WI row or Inbox | Only the dev knows what's committed work versus an idea (inferred, not confirmed) |
 | 12c | Import leaves source files untouched | Import is read-only on source files. Nothing is lost if the import is wrong (inferred, not confirmed) |
-| 13 | Prompts: install, import, status, wrap-up, triage, critique | Wrap-up borrows an idea from ai-tasks (inventory section 4). Status, triage and critique already exist in the exporter. Install and import are new needs (inferred, not confirmed) |
+| 13 | Prompts: install, import, status, triage, critique, pause | Pausing is a handbook rule with a thin `/wt-pause` prompt, replacing wrap-up. The prompt wrappers point to plain Markdown procedures (inferred, not confirmed) |
 | 13b | Prompt format: plain Markdown procedure plus a thin VS Code `.prompt.md` wrapper | The procedure works in any harness. The wrapper adds the VS Code slash command (inferred, not confirmed) |
 | 14 | Collaboration switch: a `Collaboration style: on/off` line in AGENTS.md | Matches the existing `Project mode:` line |
 | 14b | Collaboration default: on | The kit's main user is the dev, who wants it on (inferred, not confirmed) |
@@ -63,6 +63,7 @@ Approved by the dev on 261106. Numbers match the original plan, copied under [No
 | 18 | Tracking this work: WI-050 in copilot-chat-exporter, WI-040 superseded. The kit tracks itself in its own `work-tracking/` | The kit uses the system it provides |
 | 19 | Planning and research sources go in `notes/`. The check script skips `notes/` when checking topic links. | Keeps source records with tracking and prevents them from being treated as topic targets |
 | 20 | Kit repo pins LF, like copilot-chat-exporter, because the global `core.autocrlf=true` gave mixed endings. Installed copies take the target project's own policy. | Keeps kit files consistent with the exporter without forcing the kit's line-ending policy on installed projects |
+| 21 | Pausing work is a handbook rule plus a thin `/wt-pause` prompt, replacing wrap-up. Pausing is an action, not a status. The kit has 6 prompts and 4 procedure files plus `INSTALL.md`. | Wrap-up repeated the Completion check and the AGENTS block rules |
 | O1 | Writing style source: the dev's working copy, but keep "Cut detail the reader doesn't need. Say each thing once." | The dev's choice |
 | O2 | The kickoff-prompt override goes in the kit's AGENTS block. User prefs stay unchanged | Later refined: the dev chose to also align the project copy of `collaboration.md` (see Phase 1 rows) |
 | O3 | Version stamp: one line at the top of the project's `handbook.md`: "Copied from work-tracking-system at <commit> on <YYMMDD>" | Shows which kit version a copy came from, because there's no upgrade path (inferred, not confirmed). The installer fills it in. The template keeps the placeholder |
@@ -88,7 +89,7 @@ Phase 1 was accepted on 261106. The collaboration copy uses Do now and Resume po
 
 ## Resume point
 
-Phase 2 remains paused. Wait for the dev's approval before writing the six procedures and wrappers, `INSTALL.md`, or `README.md`. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
+Phase 2 Parts A-H are drafted and uncommitted. Review the final diff and status, then propose commit groups and wait for approval. Do not start the check script or a pilot. After approved commits, ask whether to continue to the check script. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
 
 ## References
 
