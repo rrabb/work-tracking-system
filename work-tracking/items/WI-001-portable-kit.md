@@ -3,10 +3,10 @@
 ## At a glance
 
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
-- **Progress as of 261109:** Phase 1 and Phase 2 assets are complete. The codebase-context sandbox succeeded. Round 2 on a non-Git vsc-chat-tool copy tested an existing `AGENTS.md`; Decision 24, including Part B, was approved on 261109. No check script or pilot has started.
+- **Progress as of 261109:** Phase 1 and Phase 2 assets are complete. The checker accepts an optional tracking-directory path and passes on the template, this repository's tracking, and the bad-link fixture. The codebase-context sandbox succeeded. Round 2 on a non-Git vsc-chat-tool copy tested an existing `AGENTS.md`; Decision 24, including Part B, was approved on 261109. The pilot has not started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
-- **Next:** Build the minimal check script for dashboard anchors and topic links, skipping `notes/`; then pilot on codebase-context, an existing Git project with an old log.
-- **Work in progress right now:** No implementation is underway; the check script is next.
+- **Next:** After this change is approved and committed, pilot install on the isolated codebase-context-WTS-1109 copy in a separate VS Code window.
+- **Work in progress right now:** Waiting for review and approval of the checker changes before commit.
 
 ## Original goal
 
@@ -91,9 +91,11 @@ Deferred, not approved: shared-repo private mode (before cpe-exb), upgrade promp
 
 Phase 1 was accepted on 261106. The collaboration copy uses Do now and Resume point as the handoff; the original user-level preferences remain untouched.
 
+The minimal `template/work-tracking/check-tracking.mjs` checks dashboard WI anchors and inline local Markdown file links in the dashboard and WI topic files. It excludes `notes/` from topic scanning and does not check heading fragments or reference-style links. It accepts an optional tracking-directory argument, defaulting to its own directory, so the same implementation checks both the packaged template and this repository's tracking. Node v24.18.0 runs passed on the template, this repository's dashboard plus one WI topic, and a bad-link fixture; no real tracking links were broken. Other Node versions were not tested.
+
 ## Resume point
 
-Build the minimal check script for dashboard anchors and topic links, skipping `notes/`. Then pilot on codebase-context, an existing Git project with an old log. Round 2 already covered an existing `AGENTS.md` and a non-Git target, so don't repeat those cases. Keep real projects untouched. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
+After the checker change is approved and committed, set Do now to the pilot install on `C:\_DEV\_sandbox\codebase-context-WTS-1109` in a separate VS Code window using `/wt-install`. Keep the real project untouched. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
 
 ## References
 
