@@ -51,7 +51,7 @@ The kit's default Collaboration style is `on`. Preserve an existing target setti
 
 Show the dev the complete proposed file list and any existing paths that would be affected. Wait for approval before writing files.
 
-Copy the contents of `template/work-tracking/` into the target's `work-tracking/`, the five remaining files in `template/.github/prompts/` into `.github/prompts/`, and `template/.github/instructions/writing-style.instructions.md` into the same path under the target. Do not copy `prompts/wt-install.prompt.md`; it is a user prompt for the kit developer. Replace the dashboard's area placeholder with the names the dev chose, using one area heading and table per name.
+Copy the contents of `template/work-tracking/` into the target's `work-tracking/`, the five remaining files in `template/.github/prompts/` into `.github/prompts/`, and `template/.github/instructions/writing-style.instructions.md` into the same path under the target. Do not copy `prompts/wt-install.prompt.md`; it is a user prompt for the kit developer. Replace the dashboard's area placeholder with the names the dev chose, using one area heading and table per name. Delete the commented example row.
 
 In the copied dashboard, replace `Updated <YYMMDD>` with the local install date in `YYMMDD` format.
 

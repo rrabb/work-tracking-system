@@ -196,6 +196,7 @@ Omit empty sections. No hard size cap; review a topic around 4,000 words. Older 
 
 ## Stable rules
 
+- Each dashboard row starts with `<a name="wi-NNN"></a>**WI-NNN** Title`.
 - WI IDs are never reused. Gaps are fine. Each row keeps its `wi-NNN` anchor when it moves.
 - Dropped ideas get one line with the reason in the closed lookup, so nobody proposes them again.
 - When you migrate a topic, add a one-line Closed lookup entry for each rejected approach another agent might propose again, linked to the topic. At most three per topic.
