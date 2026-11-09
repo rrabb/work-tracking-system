@@ -29,11 +29,12 @@ If `git status --porcelain` is not empty, stop and ask. Do not stamp a modified 
 
 Before copying anything, ask:
 
-1. Which Project mode should the target use: `prototype` or `defined`?
+1. If the target's `AGENTS.md` does not already set `Project mode:`, which mode should it use: `prototype` or `defined`? Preserve an existing value and do not ask again.
 2. Which area names should appear in the target dashboard? Do not infer area names from the code.
 3. Should the commit-message hook be installed: yes or no? Explain that it needs Node in the target environment and removes Copilot `Co-authored-by` trailers from commit messages.
+4. If the target has a writing-style instruction, does the dev want the installed kit files adapted to it? Recommend no: kit rules govern tracking files. If the dev chooses adaptation, show the proposed edits first and change only installed copies, never the kit source.
 
-The kit's default Collaboration style is `on`. Preserve an existing target setting; if one does not exist, use `on`.
+The kit's default Collaboration style is `on`. If the target's `AGENTS.md` already sets `Collaboration style:`, preserve its value and do not ask again. Otherwise use `on`.
 
 ## Target types
 
@@ -51,15 +52,19 @@ The kit's default Collaboration style is `on`. Preserve an existing target setti
 
 Show the dev the complete proposed file list and any existing paths that would be affected. Wait for approval before writing files.
 
-Copy the contents of `template/work-tracking/` into the target's `work-tracking/`, the five remaining files in `template/.github/prompts/` into `.github/prompts/`, and `template/.github/instructions/writing-style.instructions.md` into the same path under the target. Do not copy `prompts/wt-install.prompt.md`; it is a user prompt for the kit developer. Replace the dashboard's area placeholder with the names the dev chose, using one area heading and table per name. Delete the commented example row.
+Copy the contents of `template/work-tracking/` into the target's `work-tracking/`, the five remaining files in `template/.github/prompts/` into `.github/prompts/`, and the kit writing-style instructions into `.github/instructions/`. Do not copy `prompts/wt-install.prompt.md`; it is a user prompt for the kit developer. Replace the dashboard's area placeholder with the names the dev chose, using one area heading and table per name. Delete the commented example row.
 
 In the copied dashboard, replace `Updated <YYMMDD>` with the local install date in `YYMMDD` format.
 
 Prepare `AGENTS.md` from `template/AGENTS-block.md`: replace the Project mode placeholder with the chosen mode and remove the opening merge-instruction comment. Apply the matching rule in Target types. Preserve all existing content; do not replace the file.
 
+The kit's writing-style rules govern `work-tracking/` and new tracking prose. Set the installed kit writing-style file's `applyTo` to `work-tracking/**`. If `.github/instructions/writing-style.instructions.md` already exists, keep it unchanged and install the kit file as `.github/instructions/wt-writing-style.instructions.md`. Never change the kit's handbook, icons, or other kit content to match the target style unless the dev chose adaptation in step 2.
+
 The kit does not provide `.github/copilot-instructions.md`. Leave any existing file at that path untouched. If a change there seems necessary, stop and ask before proposing a merge.
 
-Never overwrite an existing destination file. If `work-tracking/`, a prompt, or the writing-style file already exists, compare the conflicting files and ask whether to keep the existing file or propose a merge. Do not delete existing content.
+Never overwrite an existing destination file. If `work-tracking/` or a prompt already exists, compare the conflicting files and ask whether to keep the existing file, rename the kit file, or propose a merge. For a writing-style conflict, keep the target file and use the alternate kit filename described above. Do not delete existing content. If the dev chooses to rename a conflicting prompt, update its `name` to match, then add a one-line mapping from the old slash command to the new one in the installed AGENTS block, such as `Prompt command: /wt-status is installed as /wt-tracking-status.`
+
+Edits to existing project documents, including `README.md`, old work logs, and notes, are allowed when needed to adapt an existing tracking system. Include proposed edits in the plan. Do not replace whole files; report each changed file as before → after → why.
 
 If the dev chose the hook, check that Node is available and inspect the target's `.githooks/commit-msg` and local `core.hooksPath` setting. Copy `template/.githooks/commit-msg` to `.githooks/commit-msg` only if the destination does not exist. Enable it with the target repository's local `core.hooksPath=.githooks` setting only if no conflicting hook path is configured. If a file or setting conflicts, show it and ask; do not overwrite it. Never change global Git configuration. On Unix-like systems, ensure the installed hook is executable.
 
@@ -79,6 +84,8 @@ The template's placeholders stay unchanged. Installed files take the target proj
 
 Show the files created or merged, the Project mode and dashboard areas selected, whether the hook was installed, the handbook stamp, and the final target `git status`. Report any conflicts or skipped steps. Do not stage or commit the installation unless the dev separately asks.
 
-Then check whether the project has TODO/FIXME comments, backlog or task files, a `CHANGELOG` Unreleased section, or open GitHub issues. Report what is present and what could not be checked. If any are present, offer to run the import procedure. Do not run it without the dev's approval.
+Then check whether the project has TODO/FIXME comments, backlog or task files, a `CHANGELOG` Unreleased section, or open GitHub issues. Report what is present and what could not be checked. If any are present, offer to run `/wt-import` in a fresh chat, which keeps this install's context small. Do not run it without the dev's approval.
+
+When an old tracking system exists, offer the separate migration proposal in the import procedure. Do not freeze old logs or repoint project links without explicit approval.
 
 Do not create a WI row for the installation itself.

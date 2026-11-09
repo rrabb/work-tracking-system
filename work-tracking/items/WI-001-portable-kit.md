@@ -3,10 +3,10 @@
 ## At a glance
 
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
-- **Progress as of 261108:** Phase 1 and Phase 2 assets are complete. The sandbox test install on a codebase-context copy succeeded. Decision 23 records the resulting fixes. No check script or pilot has started.
+- **Progress as of 261109:** Phase 1 and Phase 2 assets are complete. The codebase-context sandbox succeeded; round 2 on a non-Git vsc-chat-tool copy produced Decision 24. Its fixes and proposals are under review. No check script or pilot has started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
-- **Next:** Run a second sandbox test install covering a target with an existing `AGENTS.md` and a non-Git target.
-- **Work in progress right now:** None. All work to date is committed.
+- **Next:** Review Part A fixes and Part B proposals. After the approved changes are committed, test-install on a target with an existing `AGENTS.md`.
+- **Work in progress right now:** Reviewing round 2 fixes and optional migration proposals. Changes are uncommitted.
 
 ## Original goal
 
@@ -66,6 +66,7 @@ Approved by the dev on 261106. Numbers match the original plan, copied under [No
 | 21 | Pausing work is a handbook rule plus a thin `/wt-pause` prompt, replacing wrap-up. Pausing is an action, not a status. The kit has 6 prompts and 4 procedure files plus `INSTALL.md`. | Wrap-up repeated the Completion check and the AGENTS block rules |
 | 22 | Keep `/wt-install` in the kit's root `prompts/` folder for the dev to copy once into VS Code user prompts. Make installation rules cover target type, no-Git setup, existing instructions, uncommitted changes, and offering import after installation. | The user prompt must work from any workspace without being copied into projects. Explicit target-specific steps and approvals protect existing work, avoid duplicate project settings, and defer import until the dev approves |
 | 23 | Use uppercase `WI` and a stable anchor example in the dashboard; document the anchor format as a stable handbook rule; name topic files `WI-NNN-short-name.md`; during install, date the dashboard and preserve target line-ending policy; don't create a WI for installation; search past chats by repository name and remote URL as well as path; treat quoted Markdown TODOs as `[research]` candidates. | Source: from the 261108 sandbox install on a codebase-context copy. These details make the conventions visible in templates and cover behavior revealed by the test. |
+| 24 | Approved: kit writing rules govern tracking content; preserve existing Project mode and Collaboration style values; support writing-style and prompt conflicts without overwriting existing files; allow scoped edits to old project docs and report before → after → why; store import reports and all candidate outcomes in `work-tracking/notes/` and skip filed/rejected candidates on rerun; keep Do now and Resume point as the handoff. Proposals for review, not settled: freeze an old tracker after import and repoint links; add an import-status block to the dashboard; recommend running import in a fresh chat. | Source: round 2 on a non-Git vsc-chat-tool copy, 261109. The approved rules address observed install/import conflicts. The remaining items are proposals and need the dev's choice before use. |
 | O1 | Writing style source: the dev's working copy, but keep "Cut detail the reader doesn't need. Say each thing once." | The dev's choice |
 | O2 | The kickoff-prompt override goes in the kit's AGENTS block. User prefs stay unchanged | Later refined: the dev chose to also align the project copy of `collaboration.md` (see Phase 1 rows) |
 | O3 | Version stamp: one line at the top of the project's `handbook.md`: "Copied from work-tracking-system at <commit> on <YYMMDD>" | Shows which kit version a copy came from, because there's no upgrade path (inferred, not confirmed). The installer fills it in. The template keeps the placeholder |
@@ -91,7 +92,7 @@ Phase 1 was accepted on 261106. The collaboration copy uses Do now and Resume po
 
 ## Resume point
 
-Next, run a second sandbox test install covering a target with an existing `AGENTS.md` and a non-Git target. Keep the real projects untouched during the tests. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
+Review the round 2 diff and decide whether to keep the three Part B proposals. After the approved changes are committed, test-install on a target with an existing `AGENTS.md`; keep real projects untouched. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
 
 ## References
 

@@ -14,6 +14,8 @@ Updated 261106. Read the [handbook](handbook.md) before changing tracking.
 
 **In flight:** Nothing active.
 
+**Import status:** Not run. Sources reviewed: none. Candidates: 0 filed, 0 rejected, 0 left. Report: none.
+
 ## Overview
 
 ### Kit
