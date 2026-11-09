@@ -3,10 +3,10 @@
 ## At a glance
 
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
-- **Progress as of 261106:** Phase 1 is accepted. Phase 2 Parts A-H are drafted: the pause rule, four procedures, six prompts, `INSTALL.md`, the hook, and `README.md`. Decisions 19-21 are recorded. No check script or pilot has started.
+- **Progress as of 261108:** Phase 1 and Phase 2 assets are complete. Decision 22 records installer refinements. Next is a test install on a sandbox copy of codebase-context; no check script or pilot has started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
-- **Next:** Review the Phase 2 diff and status, then approve commit groups. After the approved commits, decide whether to continue to the check script.
-- **Work in progress right now:** Phase 2 Parts A-H are drafted and uncommitted.
+- **Next:** Test-install the kit on a sandbox copy of codebase-context.
+- **Work in progress right now:** Decision 22 installer refinements are uncommitted. The sandbox test install has not started.
 
 ## Original goal
 
@@ -64,6 +64,7 @@ Approved by the dev on 261106. Numbers match the original plan, copied under [No
 | 19 | Planning and research sources go in `notes/`. The check script skips `notes/` when checking topic links. | Keeps source records with tracking and prevents them from being treated as topic targets |
 | 20 | Kit repo pins LF, like copilot-chat-exporter, because the global `core.autocrlf=true` gave mixed endings. Installed copies take the target project's own policy. | Keeps kit files consistent with the exporter without forcing the kit's line-ending policy on installed projects |
 | 21 | Pausing work is a handbook rule plus a thin `/wt-pause` prompt, replacing wrap-up. Pausing is an action, not a status. The kit has 6 prompts and 4 procedure files plus `INSTALL.md`. | Wrap-up repeated the Completion check and the AGENTS block rules |
+| 22 | Keep `/wt-install` in the kit's root `prompts/` folder for the dev to copy once into VS Code user prompts. Make installation rules cover target type, no-Git setup, existing instructions, uncommitted changes, and offering import after installation. | The user prompt must work from any workspace without being copied into projects. Explicit target-specific steps and approvals protect existing work, avoid duplicate project settings, and defer import until the dev approves |
 | O1 | Writing style source: the dev's working copy, but keep "Cut detail the reader doesn't need. Say each thing once." | The dev's choice |
 | O2 | The kickoff-prompt override goes in the kit's AGENTS block. User prefs stay unchanged | Later refined: the dev chose to also align the project copy of `collaboration.md` (see Phase 1 rows) |
 | O3 | Version stamp: one line at the top of the project's `handbook.md`: "Copied from work-tracking-system at <commit> on <YYMMDD>" | Shows which kit version a copy came from, because there's no upgrade path (inferred, not confirmed). The installer fills it in. The template keeps the placeholder |
@@ -89,7 +90,7 @@ Phase 1 was accepted on 261106. The collaboration copy uses Do now and Resume po
 
 ## Resume point
 
-Phase 2 Parts A-H are drafted and uncommitted. Review the final diff and status, then propose commit groups and wait for approval. Do not start the check script or a pilot. After approved commits, ask whether to continue to the check script. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
+Next, test-install the kit on a sandbox copy of codebase-context. Keep the real project untouched during the test. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
 
 ## References
 
