@@ -23,6 +23,7 @@ Scan approved sources for work that is not already tracked. Keep source files un
 1. Read selected sources without modifying them.
 2. Find candidate work. Exclude items already tracked or clearly completed, unless the dev asks otherwise.
 3. Create `work-tracking/notes/<YYMMDD-HHmm>-import/` and save `import-report.md` there. Keep the report and candidate history in this folder.
+   Do not quote secrets, credentials, or personal data in the report.
 4. For each candidate, include:
    - A short title and description.
    - The source and a precise location, such as a path and line, issue URL, chat date, or commit.
@@ -32,7 +33,7 @@ Scan approved sources for work that is not already tracked. Keep source files un
    - Decision state: `Pending`, `Filed`, `Rejected`, or `Left for later`.
    - Destination for filed items, or a reason for rejected items.
 5. List sources that were unavailable or only partly scanned. State any evidence limits.
-6. Show the report path and summarize the candidates. Ask the dev to mark each candidate `Keep`, `Drop`, `Left for later`, or `Edit`, and choose `WI row` or `Inbox` for each kept item. Save all candidate states in the report, including filed, rejected, and left-for-later candidates.
+6. Show the report to the dev before it is first committed. Give the report path and summarize the candidates. Ask the dev to mark each candidate `Keep`, `Drop`, `Left for later`, or `Edit`, and choose `WI row` or `Inbox` for each kept item. Save all candidate states in the report, including filed, rejected, and left-for-later candidates.
 
 Do not add candidates to tracking until the dev returns the marked report or otherwise approves each item and destination.
 

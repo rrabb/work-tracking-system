@@ -54,11 +54,13 @@ Show the dev the complete proposed file list and any existing paths that would b
 
 Copy the contents of `template/work-tracking/` into the target's `work-tracking/`, the five remaining files in `template/.github/prompts/` into `.github/prompts/`, and the kit writing-style instructions into `.github/instructions/`. Do not copy `prompts/wt-install.prompt.md`; it is a user prompt for the kit developer. Replace the dashboard's area placeholder with the names the dev chose, using one area heading and table per name. Delete the commented example row.
 
+Check whether the target already has a writing-style instruction file. If it does not, install the kit file as `.github/instructions/writing-style.instructions.md` with `applyTo: "**"` so it covers the whole project. If one already exists, keep it unchanged and install the kit file as `.github/instructions/wt-writing-style.instructions.md` with `applyTo: "work-tracking/**"` so it only covers the tracking files.
+
 In the copied dashboard, replace `Updated <YYMMDD>` with the local install date in `YYMMDD` format.
 
 Prepare `AGENTS.md` from `template/AGENTS-block.md`: replace the Project mode placeholder with the chosen mode and remove the opening merge-instruction comment. Apply the matching rule in Target types. Preserve all existing content; do not replace the file.
 
-The kit's writing-style rules govern `work-tracking/` and new tracking prose. Set the installed kit writing-style file's `applyTo` to `work-tracking/**`. If `.github/instructions/writing-style.instructions.md` already exists, keep it unchanged and install the kit file as `.github/instructions/wt-writing-style.instructions.md`. Never change the kit's handbook, icons, or other kit content to match the target style unless the dev chose adaptation in step 2.
+The installed kit writing-style file follows the rule above. Never change the kit's handbook, icons, or other kit content to match the target style unless the dev chose adaptation in step 2.
 
 The kit does not provide `.github/copilot-instructions.md`. Leave any existing file at that path untouched. If a change there seems necessary, stop and ask before proposing a merge.
 

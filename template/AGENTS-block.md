@@ -7,7 +7,7 @@ Collaboration style: on
 
 Read in this order: `work-tracking/handbook.md`, the **Start here** section of `work-tracking/dashboard.md`, then the topic in `work-tracking/items/` for the item you work on.
 
-- **Writing style:** The kit's writing rules take precedence inside `work-tracking/` and govern new tracking prose. Do not rewrite kit files to match the project's style unless the dev chooses that during install.
+- **Writing style:** The kit's writing rules win inside `work-tracking/` and govern new tracking prose. Do not rewrite kit files to match the project's style unless the dev chooses that during install.
 - **Source of truth:** `work-tracking/dashboard.md` and its topics are the active tracking system. After an approved migration, keep the old system as read-only history.
 - **Prompt names:** If an installed prompt is renamed to resolve a conflict, record its original and installed slash commands in this block.
 

@@ -100,6 +100,7 @@ Tracking is part of finishing the task. Before reporting completion:
 4. Separate unresolved follow-ups from completed work. Use the existing child-item rules for new tasks. Don't leave a completed parent open because independent work remains.
 5. Reread the updated entries against the code, validation results and approved scope. Make sure the final reply's `Tracking:` line names the actual updates.
 6. After any tracking edit, list the lines you changed in the reply.
+7. If you commit after running this check, run steps 2 and 5 again.
 
 If tracking can't be updated, report the task as incomplete and explain why. For read-only work, respect the no-edit boundary and report any tracking updates still needed.
 
@@ -202,4 +203,5 @@ Omit empty sections. No hard size cap; review a topic around 4,000 words. Older 
 - When you migrate a topic, add a one-line Closed lookup entry for each rejected approach another agent might propose again, linked to the topic. At most three per topic.
 - Reread an entry before you edit it, and keep other chats' changes. Ask if two edits conflict.
 - Keep personal paths, real session IDs and credentials out of tracking files. Missing evidence stays labeled missing.
+- Don't record commit state (uncommitted, committed, under review) in tracking; Git shows it. Name a commit hash only as evidence after it exists.
 - The archive is old history. Nothing new goes there. Read it only through links.
