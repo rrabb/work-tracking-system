@@ -4,6 +4,8 @@ Copied from work-tracking-system at dd6e59a on 261106
 
 How to keep the [dashboard](dashboard.md) and topic files useful. The dashboard says what to do. Topics remember why.
 
+Before acting on a free-text answer or an answer inferred from the project, state how you interpreted it. Treat an inferred answer as a proposal and get the dev's approval before using it.
+
 ## Start a session
 
 1. Read **Start here** on the dashboard: Do now, Decisions you owe, Inbox, In flight.
@@ -42,9 +44,15 @@ Do now lists the Next rows in order. When a row's status or next action changes,
 
 **Next means chosen to do soon. It does not approve implementation or Git actions.** Keep Next short (1-5) and ordered.
 
-Priority is High, Medium or Low, shown after the status. Use the project's priority rules. "Quick win" is an optional marker.
+Priority is High, Medium or Low, shown after the status. Use the project's recorded rules. Otherwise use these defaults:
 
-If the project has no priority rules, ask the dev to set them before assigning priority.
+- **High:** Blocks use or risks wrong results.
+- **Medium:** Improves current work or tooling.
+- **Low:** Wishlist work.
+
+Use the highest matching level. "Quick win" is an optional marker.
+
+Priority rules: confirmed 261110
 
 ## Tags, who and size
 
