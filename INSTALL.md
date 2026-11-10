@@ -70,7 +70,15 @@ Never overwrite an existing destination file. If `work-tracking/` already exists
 
 Skill name conflicts: a kit skill conflicts when the target already has a skill with the same name. Check `.github/skills/`, `.claude/skills/`, and `.agents/skills/` for a `wt-<name>/` folder or a `SKILL.md` whose `name` is `wt-<name>`. This check is best-effort: VS Code recognizes other skill folders too, and when two folders hold a skill with the same name, both appear with no documented winner. Never overwrite or edit the existing skill. Rename the kit skill to an unused name, such as `wt-tracking-status`, changing the folder name and the `name` field together; if they differ, the skill silently fails to load. Add a one-line mapping to the installed AGENTS block, such as `Skill command: /wt-status is installed as /wt-tracking-status.`, and report each rename in step 5.
 
-Old kit prompts: if the target has `.github/prompts/wt-*.prompt.md` files from an earlier kit version, propose removing them, because they duplicate the skills' slash commands. Report each file as before → after → why, and remove nothing without the dev's approval. This is the only upgrade step the kit supports.
+Old kit prompts: if the target has `.github/prompts/wt-*.prompt.md` files from an earlier kit version, propose removing them, because they duplicate the skills' slash commands. Report each file as before → after → why, and remove nothing without the dev's approval. After removing them, remove `.github/prompts/` only if it is now empty. This is the only upgrade step the kit supports.
+
+Scratch folder (Git targets only): check from the target root whether `temp-tool-output/` is ignored:
+
+```text
+git check-ignore -q temp-tool-output/
+```
+
+If the command exits with 0, no change is needed. If it exits with 1, include `temp-tool-output/` in the proposed install changes. Report it as before → after → why, and ask for approval before editing `.gitignore`. Append the line to an existing `.gitignore`, or create `.gitignore` with that line if none exists. Add it on its own line. If `.gitignore` doesn't end with a newline, add one first. If the dev declines, leave `.gitignore` unchanged and report in step 5 that `temp-tool-output/` is not ignored. If the command exits with any other code, stop and report the check failure. Skip this check and change in the **No Git** flow.
 
 Edits to existing project documents, including `README.md`, old work logs, and notes, are allowed when needed to adapt an existing tracking system. Include proposed edits in the plan. Do not replace whole files; report each changed file as before → after → why.
 
@@ -90,7 +98,7 @@ The template's placeholders stay unchanged. Installed files take the target proj
 
 ## 5. Finish
 
-Show the files created or merged, the Project mode and dashboard areas selected, whether the hook was installed, the handbook stamp, and the final target `git status`. Report any conflicts or skipped steps. Do not stage or commit the installation unless the dev separately asks.
+Show the files created or merged, the Project mode and dashboard areas selected, whether the hook was installed, the handbook stamp, and the final target `git status`. For Git targets, rerun `git check-ignore -q temp-tool-output/`; if it exits with 1, report that `temp-tool-output/` is not ignored. If it exits with any other nonzero code, report the check failure. In the **No Git** flow, skip this check. Report any conflicts or skipped steps. Do not stage or commit the installation unless the dev separately asks.
 
 Then check whether the project has TODO/FIXME comments, backlog or task files, a `CHANGELOG` Unreleased section, or open GitHub issues. Report what is present and what could not be checked. If any are present, offer to run `/wt-import` in a fresh chat, which keeps this install's context small. Do not run it without the dev's approval.
 
