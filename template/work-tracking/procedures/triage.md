@@ -14,14 +14,22 @@ Review Inbox entries with the dev. Don't make decisions or edit tracking on the 
    - Answer the question and record the answer with the relevant item.
 5. Flag `[question]` entries that block the next step for the dashboard's Do now section.
 6. If the Inbox has more than about 15 lines, mention that once.
-7. Show each line, its source, proposed tag, duplicate if found, recommendation, and reason.
-8. Ask the dev to approve or change each recommendation before editing.
+7. Show all recommendations in one table. Give each Inbox line a temporary ID, such as `C1`, and keep that ID for the rest of the run. Include the line, its source, proposed tag, duplicate if found, recommendation, and reason. Count the lines in this review as M.
+8. Ask one question with three choices before editing:
+   - **Accept all:** approve every recommendation in the table.
+   - **Accept with overrides:** approve the table except for the stated changes, for example `C15 Drop, C21 WI`. Follow the handbook's answer-interpretation rule before applying overrides. Clarify ambiguous IDs or actions before editing.
+   - **Go one at a time:** review the same table in ID order, asking for approval or changes to one recommendation at a time.
+
+   Don't ask a separate question for each line unless the dev chooses one-at-a-time mode.
+9. In one-at-a-time mode, after every answer show: `Answered N of M. Next: <id>. Say 'pause' to stop; the rest stay in the Inbox.` Count only lines with a clear approved action as answered, including an approved Keep. Use `Next: none` when all lines are answered. If the dev says `pause`, stop asking; leave unanswered lines in the Inbox.
+
+If a triage turn ends with unanswered lines, make this the last line of the reply body, directly above the `Tracking:` line: `Triage incomplete: N lines left (<ids>)`. List the unanswered IDs, not lines explicitly approved to Keep. Preserve the handbook's Tracking/Evidence footer order.
 
 ## Apply approved triage
 
 1. Re-read the dashboard, handbook, and any affected topic.
-2. Apply only the dev's approved actions. Record where each Inbox line went before removing it.
-3. For a new WI, use a unique ID and follow the topic and dashboard formats in the handbook.
+2. Apply only the dev's approved actions. Record where each Inbox line went before removing it. Unanswered lines and lines approved to Keep stay in the Inbox; never delete them.
+3. For a new WI, use a unique ID and follow the topic and dashboard formats in the handbook. Keep the row attached to its area table, with no blank line between table rows.
 4. For a dropped item, record its reason in the Closed lookup.
 5. For an answered question, record the answer with the item it concerns.
 6. Refresh Do now and the dashboard Updated date if a row's status or next action changed.

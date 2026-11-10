@@ -82,6 +82,25 @@ async function checkLinks(markdown, sourcePath) {
 }
 
 const dashboard = withoutComments(await readFile(dashboardPath, "utf8"));
+const dashboardLines = dashboard.split(/\r?\n/);
+let detachedTable = false;
+for (const [index, line] of dashboardLines.entries()) {
+  if (!/^\s*\|/.test(line)) {
+    detachedTable = false;
+    continue;
+  }
+
+  if (index === 0 || dashboardLines[index - 1].trim() === "") {
+    const nextLine = dashboardLines[index + 1] ?? "";
+    const hasSeparator = /^\s*\|(?:\s*:?-+:?\s*\|)+\s*$/.test(nextLine);
+    detachedTable = !hasSeparator;
+  }
+
+  if (detachedTable && /\bWI-\d{3}\b/i.test(line)) {
+    errors.push(`dashboard.md:${index + 1}: WI row is split from its table by a blank line; restore it below the table header and separator`);
+  }
+}
+
 const anchorNames = new Map();
 for (const match of dashboard.matchAll(/<a\s+name=["']([^"']+)["']\s*><\/a>/gi)) {
   const name = match[1];

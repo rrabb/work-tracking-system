@@ -33,9 +33,9 @@ For `/wt-import`, pick a strong model in the chat's model picker instead of Auto
 
 ## Check tracking
 
-From an installed project root, run `node work-tracking/check-tracking.mjs`. To check this kit's own tracking from the repository root, run `node template/work-tracking/check-tracking.mjs work-tracking`. The optional path names the tracking directory; without it, the script checks the folder containing itself. The checker validates WI anchors and topic links from the dashboard, plus inline local Markdown file links in WI topic files. It does not scan `notes/`, resolve heading fragments or reference-style links, or check statuses and pinned-commit line links.
+From an installed project root, run `node work-tracking/check-tracking.mjs`. To check this kit's own tracking from the repository root, run `node template/work-tracking/check-tracking.mjs work-tracking`. The optional path names the tracking directory; without it, the script checks the folder containing itself. The checker validates WI anchors and topic links from the dashboard, flags WI rows split from their table by a blank line, and checks inline local Markdown file links in WI topic files. It does not scan `notes/`, resolve heading fragments or reference-style links, or check statuses and pinned-commit line links.
 
-Run the bad-link regression fixture with `node --test test/check-tracking.test.mjs`.
+Run the checker regression tests with `node --test test/check-tracking.test.mjs`.
 
 ## Out of scope
 
