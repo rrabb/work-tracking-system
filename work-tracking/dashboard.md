@@ -6,9 +6,9 @@ Updated 261110. Read the [handbook](handbook.md) before changing tracking.
 
 ## Start here
 
-**Do now:** [question] WI-001 — Review decision 30's triage and checker changes; then retest Local triage on the codebase-context-WTS-1109 copy.
+**Do now:** [question] WI-001 — Review decisions 30 and 31, then retest Local triage on the codebase-context-WTS-1109 copy. The triage procedure is copied; updating the copy's Tracking rules still needs approval.
 
-**Decisions you owe:** Accept decision 30's implementation. Phase 2 is paused.
+**Decisions you owe:** Accept the implementation of decisions 30 and 31. Phase 2 is paused.
 
 **Inbox:** See [Inbox](#inbox). 1 entry.
 
@@ -22,7 +22,7 @@ Updated 261110. Read the [handbook](handbook.md) before changing tracking.
 
 | Item | What it is | Status | Type | Who | Size | Do after | Links |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | ⏳ Waiting · Medium | [build] | both | L | - | Waits for acceptance of decision 30's triage and checker changes |
+| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | ⏳ Waiting · Medium | [build] | both | L | - | Waits for acceptance of decisions 30 and 31: triage, checker, and Tracking-line changes |
 
 ## Inbox
 

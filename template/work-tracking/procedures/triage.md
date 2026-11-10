@@ -21,7 +21,12 @@ Review Inbox entries with the dev. Don't make decisions or edit tracking on the 
    - **Go one at a time:** review the same table in ID order, asking for approval or changes to one recommendation at a time.
 
    Don't ask a separate question for each line unless the dev chooses one-at-a-time mode.
-9. In one-at-a-time mode, after every answer show: `Answered N of M. Next: <id>. Say 'pause' to stop; the rest stay in the Inbox.` Count only lines with a clear approved action as answered, including an approved Keep. Use `Next: none` when all lines are answered. If the dev says `pause`, stop asking; leave unanswered lines in the Inbox.
+9. In one-at-a-time mode, ask about each line with three choices:
+   - **Approve:** accept this line's recommendation.
+   - **Change:** state a different action for this line.
+   - **Approve the rest as recommended (<ids>):** accept the table's recommendation for this line and every unanswered line, then end the questions. Put the covered IDs in the choice label, and list them again before editing.
+
+   After every answer show: `Answered N of M. Next: <id>. Say 'pause' to stop; <id> and any other unanswered lines stay in the Inbox.` Count only lines with a clear approved action as answered, including an approved Keep. Use `Next: none` when all lines are answered. If the dev says `pause`, stop asking; leave unanswered lines in the Inbox.
 
 If a triage turn ends with unanswered lines, make this the last line of the reply body, directly above the `Tracking:` line: `Triage incomplete: N lines left (<ids>)`. List the unanswered IDs, not lines explicitly approved to Keep. Preserve the handbook's Tracking/Evidence footer order.
 

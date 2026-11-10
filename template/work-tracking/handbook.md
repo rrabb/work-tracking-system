@@ -96,7 +96,7 @@ One line per idea, newest at the bottom:
 | Finding, decision, rejected approach, evidence limit | Topic |
 | Detour resolved part of the goal | A note on how this got back to the goal in the topic |
 
-End every reply, including plain Q&A, with `Tracking: updated WI-NNN (what)` or `Tracking: no change`. Put it on the last line of the reply, or just above the `Evidence:` line when that line is present. The line also shows that AGENTS.md loaded.
+End every reply, including plain Q&A, with a Tracking line. Use `Tracking: updated WI-NNN (what)` for an item's tracking, `Tracking: updated <file> (what)` for tracking edits no WI owns, such as handbook or dashboard-only changes, or `Tracking: no change`. Name every WI and file you updated, separated by `; `. Put it on the last line of the reply, or just above the `Evidence:` line when that line is present. The line also shows that AGENTS.md loaded.
 
 ### Completion check
 
