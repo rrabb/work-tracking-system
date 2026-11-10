@@ -9,7 +9,7 @@ Read in this order: `work-tracking/handbook.md`, the **Start here** section of `
 
 - **Writing style:** The kit's writing rules win inside `work-tracking/` and govern new tracking prose. Do not rewrite kit files to match the project's style unless the dev chooses that during install.
 - **Source of truth:** `work-tracking/dashboard.md` and its topics are the active tracking system. After an approved migration, keep the old system as read-only history.
-- **Slash commands:** If the user types /wt-<name>, run the wt-<name> skill. If it isn't available, read and follow .github/skills/wt-<name>/SKILL.md.
+- **Slash commands:** If the user types /wt-<name> and the skill's text is already in the message, follow it. Don't call the skill tool for it. Otherwise read and follow .github/skills/wt-<name>/SKILL.md.
 - **Skill names:** If an installed skill was renamed to resolve a conflict, its mapping is recorded here, and the fallback line uses the installed name.
 
 When `Collaboration style: on`, also read `work-tracking/collaboration.md`. When it is `off`, do not apply that file's preferences.

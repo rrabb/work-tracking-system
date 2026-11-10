@@ -17,7 +17,7 @@ It is best suited to solo projects or projects where the tracking files can be c
 - A zero-dependency check script at `work-tracking/check-tracking.mjs`.
 - An optional commit-message hook. It requires Node and removes Copilot `Co-authored-by` trailers.
 
-The import procedure scans only sources selected for that run, leaves source files unchanged, and waits for approval before adding items to tracking.
+The import procedure scans only sources selected for that run, leaves source files unchanged, and waits for approval before adding items to tracking. It asks which folders to exclude. For each open-work list it finds, it asks whether to retire that section after filing or keep it as reference.
 
 ## Install
 
@@ -28,6 +28,8 @@ Follow C:\_DEV\work-tracking-system\INSTALL.md for this workspace.
 ```
 
 Use your own kit path if it differs. Install from a clean kit checkout. The guide checks the target's Git status, collects project choices, and presents the planned changes for approval. Nothing is installed in your user profile.
+
+For `/wt-import`, pick a strong model in the chat's model picker instead of Auto. In testing, Auto twice picked a weaker model.
 
 ## Check tracking
 

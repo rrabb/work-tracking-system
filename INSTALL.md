@@ -6,7 +6,7 @@ The kit is copied into a project once. Each installed copy is that project's for
 
 ## 1. Confirm the kit and target
 
-If the open workspace is the kit checkout itself, or has more than one root folder, stop and ask which project is the target. Read the target project's `AGENTS.md` and relevant instructions before planning changes.
+If the open workspace is the kit checkout itself, or has more than one root folder, stop and ask which project is the target. Read the target project's `AGENTS.md` and relevant instructions before planning changes. Read the kit's `template/work-tracking/handbook.md` and follow its answer-interpretation rule during installation.
 
 From the target root, run:
 
@@ -35,6 +35,7 @@ Before copying anything, ask:
 2. Which area names should appear in the target dashboard? Do not infer area names from the code.
 3. Should the commit-message hook be installed: yes or no? Explain that it needs Node in the target environment and removes Copilot `Co-authored-by` trailers from commit messages.
 4. If the target has a writing-style instruction, does the dev want the installed kit files adapted to it? Recommend no: kit rules govern tracking files. If the dev chooses adaptation, show the proposed edits first and change only installed copies, never the kit source.
+5. Show the priority defaults from the kit handbook. Ask whether to accept them or change them. The dev may type replacements or ask for a proposal inferred from the project. If the target already has priority rules, show them and offer to keep them. Resolve conflicts in the plan; do not change existing rules without approval. Get the dev's approval of the final wording before continuing.
 
 The kit's default Collaboration style is `on`. If the target's `AGENTS.md` already sets `Collaboration style:`, preserve its value and do not ask again. Otherwise use `on`.
 
@@ -59,6 +60,8 @@ Copy the contents of `template/work-tracking/` into the target's `work-tracking/
 Check whether the target already has a writing-style instruction file. If it does not, install the kit file as `.github/instructions/writing-style.instructions.md` with `applyTo: "**"` so it covers the whole project. If one already exists, keep it unchanged and install the kit file as `.github/instructions/wt-writing-style.instructions.md` with `applyTo: "work-tracking/**"` so it only covers the tracking files.
 
 In the copied dashboard, replace `Updated <YYMMDD>` with the local install date in `YYMMDD` format.
+
+In the target's `work-tracking/handbook.md`, use the priority rules confirmed in step 2 and replace the status line with `Priority rules: confirmed <YYMMDD>`, using the local install date. Leave the template unchanged. If the target handbook already exists, show the proposed merge and get approval before editing it.
 
 Prepare `AGENTS.md` from `template/AGENTS-block.md`: replace the Project mode placeholder with the chosen mode and remove the opening merge-instruction comment. Apply the matching rule in Target types. Preserve all existing content; do not replace the file.
 
@@ -98,9 +101,9 @@ The template's placeholders stay unchanged. Installed files take the target proj
 
 ## 5. Finish
 
-Show the files created or merged, the Project mode and dashboard areas selected, whether the hook was installed, the handbook stamp, and the final target `git status`. For Git targets, rerun `git check-ignore -q temp-tool-output/`; if it exits with 1, report that `temp-tool-output/` is not ignored. If it exits with any other nonzero code, report the check failure. In the **No Git** flow, skip this check. Report any conflicts or skipped steps. Do not stage or commit the installation unless the dev separately asks.
+Show the files created or merged, the Project mode, dashboard areas and priority rules selected, whether the hook was installed, the handbook stamp, and the final target `git status`. For Git targets, rerun `git check-ignore -q temp-tool-output/`; if it exits with 1, report that `temp-tool-output/` is not ignored. If it exits with any other nonzero code, report the check failure. In the **No Git** flow, skip this check. Report any conflicts or skipped steps. Do not stage or commit the installation unless the dev separately asks.
 
-Then check whether the project has TODO/FIXME comments, backlog or task files, a `CHANGELOG` Unreleased section, or open GitHub issues. Report what is present and what could not be checked. If any are present, offer to run `/wt-import` in a fresh chat, which keeps this install's context small. Do not run it without the dev's approval.
+Then check whether the project has TODO/FIXME comments, backlog or task files, a `CHANGELOG` Unreleased section, or open GitHub issues. Report what is present and what could not be checked. If any are present, offer to run `/wt-import` in a fresh chat, which keeps this install's context small. Tell the dev to pick a strong model for it instead of Auto. Do not run it without the dev's approval.
 
 When an old tracking system exists, offer the separate migration proposal in the import procedure. Do not freeze old logs or repoint project links without explicit approval.
 
