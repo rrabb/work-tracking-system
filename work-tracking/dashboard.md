@@ -6,7 +6,7 @@ Updated 261109. Read the [handbook](handbook.md) before changing tracking.
 
 ## Start here
 
-**Do now:** [build] WI-001 — Pilot install on the codebase-context-WTS-1109 copy (separate window).
+**Do now:** [build] WI-001 — Pilot install on the codebase-context-WTS-1109 copy (separate window). Then test `/wt-*` skills in both Local and Agent Host chats.
 
 **Decisions you owe:** None. Phase 2 is paused.
 
@@ -22,7 +22,7 @@ Updated 261109. Read the [handbook](handbook.md) before changing tracking.
 
 | Item | What it is | Status | Type | Who | Size | Do after | Links |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | 🔜 Next · Medium | [build] | both | L | - | Phase 1 accepted |
+| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | 🔜 Next · Medium | [build] | both | L | - | Phase 1 accepted; decision 26: skills replace prompts |
 
 ## Inbox
 

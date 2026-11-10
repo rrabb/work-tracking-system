@@ -3,10 +3,10 @@
 ## At a glance
 
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
-- **Progress as of 261109:** Phase 1 and Phase 2 assets are complete. The checker accepts an optional tracking-directory path and passes on the template, this repository's tracking, and the bad-link fixture. The codebase-context sandbox succeeded. Round 2 on a non-Git vsc-chat-tool copy tested an existing `AGENTS.md`; Decision 24, including Part B, was approved on 261109. The pilot has not started.
+- **Progress as of 261109:** Phase 1 and Phase 2 assets are complete. The checker accepts an optional tracking-directory path and passes on the template, this repository's tracking, and the bad-link fixture. The codebase-context sandbox succeeded. Round 2 on a non-Git vsc-chat-tool copy tested an existing `AGENTS.md`; Decision 24, including Part B, was approved on 261109. Decision 26 (261109) replaced the `/wt-*` prompts with project skills and made `INSTALL.md` self-starting. The pilot has not started.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
 - **Next:** Pilot install on the isolated codebase-context-WTS-1109 copy in a separate VS Code window.
-- **Work in progress right now:** Pilot install is queued; run `/wt-install` in the separate VS Code window.
+- **Work in progress right now:** Pilot install is queued. In the separate VS Code window, type "Follow C:\_DEV\work-tracking-system\INSTALL.md for this workspace."
 
 ## Original goal
 
@@ -15,7 +15,7 @@ Build a portable work-tracking kit that can be copied into solo projects, then t
 ## Done when
 
 - [ ] The kit includes a handbook, templates, collaboration guidance, and writing-style instructions.
-- [ ] The kit includes six prompts and four procedures plus `INSTALL.md`; the pause prompt points to the handbook rule.
+- [ ] The kit includes five skills and four procedures plus a self-starting `INSTALL.md`; the pause skill points to the handbook rule.
 - [ ] The install guide and README explain how to copy the kit into a project.
 - [ ] The zero-dependency Node check script covers dashboard anchors and topic links before the pilot.
 - [ ] The kit passes a pilot on codebase-context, followed by vsc-chat-tool and proj-ent-cfg-test.
@@ -68,6 +68,7 @@ Approved by the dev on 261106. Numbers match the original plan, copied under [No
 | 23 | Use uppercase `WI` and a stable anchor example in the dashboard; document the anchor format as a stable handbook rule; name topic files `WI-NNN-short-name.md`; during install, date the dashboard and preserve target line-ending policy; don't create a WI for installation; search past chats by repository name and remote URL as well as path; treat quoted Markdown TODOs as `[research]` candidates. | Source: from the 261108 sandbox install on a codebase-context copy. These details make the conventions visible in templates and cover behavior revealed by the test. |
 | 24 | Approved: kit writing rules govern tracking content; preserve existing Project mode and Collaboration style values; support writing-style and prompt conflicts without overwriting existing files; allow scoped edits to old project docs and report before → after → why; store import reports and all candidate outcomes in `work-tracking/notes/` and skip filed/rejected candidates on rerun; keep Do now and Resume point as the handoff; freeze an old tracker after import and repoint links; add an import-status block to the dashboard; recommend running import in a fresh chat. | Source: round 2 on a non-Git vsc-chat-tool copy, 261109. The dev approved Part A and Part B on 261109. |
 | 25 | Handbook stable rule: don't record commit state in tracking; name a commit hash only as evidence after it exists. If a commit happens after the Completion check, rerun steps 2 and 5. Writing-style install: without an existing writing-style instruction, install `writing-style.instructions.md` with `applyTo: "**"`; when one exists, keep it and install `wt-writing-style.instructions.md` with `applyTo: "work-tracking/**"`. | The dev's decisions on 261109. |
+| 26 | Replace the `/wt-*` prompt files with project skills at `template/.github/skills/wt-<name>/SKILL.md`, each a thin pointer to its procedure. `wt-import`, `wt-triage`, and `wt-pause` set `disable-model-invocation: true`, so only the dev starts them. The AGENTS block adds a fallback line: run the skill, or else read its `SKILL.md`. Skill name conflicts are checked in `.github/skills/`, `.claude/skills/`, and `.agents/skills/`, best-effort; a conflicting kit skill is renamed (folder and `name` together) and mapped in the AGENTS block. Narrow exception to decision 9: install offers to remove old `wt-*.prompt.md` files, with approval. Drop `/wt-install` and all user-level files: `INSTALL.md` is self-starting, uses the open workspace as the target, and asks for the kit path only if it can't tell (default `C:\_DEV\work-tracking-system`). Supersedes 13b's wrapper format and 22. | In Agent Host (Copilot harness) chats, prompt files aren't expanded; `/wt-import` was read as "worktree import" in the sandbox. VS Code docs say prompt files are Local-only and skills work in both harnesses from `.github/skills/`. One mechanism, nothing in the user profile. Approved by the dev 261109. Not yet tested in Agent Host. |
 | O1 | Writing style source: the dev's working copy, but keep "Cut detail the reader doesn't need. Say each thing once." | The dev's choice |
 | O2 | The kickoff-prompt override goes in the kit's AGENTS block. User prefs stay unchanged | Later refined: the dev chose to also align the project copy of `collaboration.md` (see Phase 1 rows) |
 | O3 | Version stamp: one line at the top of the project's `handbook.md`: "Copied from work-tracking-system at <commit> on <YYMMDD>" | Shows which kit version a copy came from, because there's no upgrade path (inferred, not confirmed). The installer fills it in. The template keeps the placeholder |
@@ -85,7 +86,7 @@ Approved by the dev on 261106. Numbers match the original plan, copied under [No
 | C1 | Add a kit-root pointer `AGENTS.md` (Project mode: prototype, Collaboration style: on). Reverses P1's "no kit-root AGENTS.md" | Without it, fresh chats here don't load the tracking rules. Accepted cost: a fourth copy of the tracking bullets that can drift (dev, 261106 cleanup) |
 | C2 | Copy `collaboration.md` into the kit's own `work-tracking/` | Matches an installed project, so the "on" path gets tested here (dev, 261106 cleanup) |
 
-Deferred, not approved: shared-repo private mode (before cpe-exb), upgrade prompt (when drift hurts), user-level skill packaging (if drift becomes a problem), Backlog.md as a board UI (if a board is wanted).
+Deferred, not approved: shared-repo private mode (before cpe-exb), upgrade prompt (when drift hurts), Backlog.md as a board UI (if a board is wanted). User-level skill packaging was dropped by decision 26.
 
 ## Findings and outcomes
 
@@ -95,7 +96,7 @@ The minimal `template/work-tracking/check-tracking.mjs` checks dashboard WI anch
 
 ## Resume point
 
-Run `/wt-install` in a separate VS Code window on the fresh copy at `C:\_DEV\_sandbox\codebase-context-WTS-1109`. Keep the real project untouched. The install's proposed file list and Git status must be reviewed before any changes. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
+Use a fresh copy at `C:\_DEV\_sandbox\codebase-context-WTS-1109`, opened in a separate VS Code window. In its chat, type "Follow C:\_DEV\work-tracking-system\INSTALL.md for this workspace." Keep the real project untouched. The install's proposed file list and Git status must be reviewed before any changes. If the copy still has old `wt-*.prompt.md` files, check that install offers to remove them. After install, test `/wt-status` and `/wt-import` in both a Local and an Agent Host chat; decision 26 is untested in Agent Host. The decisions topic is maintained in this file. For the original planning sources, read [decisions-source.md](../notes/decisions-source.md) and [inventory-and-options.md](../notes/inventory-and-options.md).
 
 ## References
 
@@ -105,6 +106,10 @@ Run `/wt-install` in a separate VS Code window on the fresh copy at `C:\_DEV\_sa
 - [Research and inventory](../notes/inventory-and-options.md)
 
 ## Notes
+
+### 261109-2215 - Decision 26: skills replace prompts
+
+Added five thin skills under `template/.github/skills/` and the AGENTS block's slash-command fallback line. `INSTALL.md` now starts itself from the target's chat, copies skills, checks skill name conflicts best-effort, and offers to remove old kit prompts. README gives the one-line install request. The dev confirmed removing the five `template/.github/prompts/` files and the root `prompts/wt-install.prompt.md`; both folders are now gone. Source for the skill locations and frontmatter: https://code.visualstudio.com/docs/agent-customization/agent-skills, read 261109.
 
 ### 261106-2255 - Git line endings and scratch output
 

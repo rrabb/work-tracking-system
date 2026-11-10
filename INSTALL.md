@@ -1,10 +1,12 @@
 # Install the portable work-tracking kit
 
-The kit is copied into a project once. Each installed copy is that project's fork; there is no upgrade path. Install from a clean kit checkout so the handbook stamp identifies the exact source.
+Run this guide from a chat in the target project. The open workspace is the target. The kit checkout is the folder that contains this file. If you can't tell where that is, ask for it, defaulting to `C:\_DEV\work-tracking-system`.
+
+The kit is copied into a project once. Each installed copy is that project's fork; there is no upgrade path. The one exception: install offers to remove `wt-*` prompt files left by an earlier kit version (see step 3). Install from a clean kit checkout so the handbook stamp identifies the exact source.
 
 ## 1. Confirm the kit and target
 
-Ask for the kit checkout path and target project root if either is unclear. Read the target project's `AGENTS.md` and relevant instructions before planning changes. The current workspace is the target when the guide was started through `/wt-install`.
+If the open workspace is the kit checkout itself, or has more than one root folder, stop and ask which project is the target. Read the target project's `AGENTS.md` and relevant instructions before planning changes.
 
 From the target root, run:
 
@@ -52,7 +54,7 @@ The kit's default Collaboration style is `on`. If the target's `AGENTS.md` alrea
 
 Show the dev the complete proposed file list and any existing paths that would be affected. Wait for approval before writing files.
 
-Copy the contents of `template/work-tracking/` into the target's `work-tracking/`, the five remaining files in `template/.github/prompts/` into `.github/prompts/`, and the kit writing-style instructions into `.github/instructions/`. Do not copy `prompts/wt-install.prompt.md`; it is a user prompt for the kit developer. Replace the dashboard's area placeholder with the names the dev chose, using one area heading and table per name. Delete the commented example row.
+Copy the contents of `template/work-tracking/` into the target's `work-tracking/`, each skill folder in `template/.github/skills/` into `.github/skills/`, and the kit writing-style instructions into `.github/instructions/`. Skills provide the `/wt-*` slash commands in both the Local and Copilot harnesses. Replace the dashboard's area placeholder with the names the dev chose, using one area heading and table per name. Delete the commented example row.
 
 Check whether the target already has a writing-style instruction file. If it does not, install the kit file as `.github/instructions/writing-style.instructions.md` with `applyTo: "**"` so it covers the whole project. If one already exists, keep it unchanged and install the kit file as `.github/instructions/wt-writing-style.instructions.md` with `applyTo: "work-tracking/**"` so it only covers the tracking files.
 
@@ -64,7 +66,11 @@ The installed kit writing-style file follows the rule above. Never change the ki
 
 The kit does not provide `.github/copilot-instructions.md`. Leave any existing file at that path untouched. If a change there seems necessary, stop and ask before proposing a merge.
 
-Never overwrite an existing destination file. If `work-tracking/` or a prompt already exists, compare the conflicting files and ask whether to keep the existing file, rename the kit file, or propose a merge. For a writing-style conflict, keep the target file and use the alternate kit filename described above. Do not delete existing content. If the dev chooses to rename a conflicting prompt, update its `name` to match, then add a one-line mapping from the old slash command to the new one in the installed AGENTS block, such as `Prompt command: /wt-status is installed as /wt-tracking-status.`
+Never overwrite an existing destination file. If `work-tracking/` already exists, compare the conflicting files and ask whether to keep the existing file, rename the kit file, or propose a merge. For a writing-style conflict, keep the target file and use the alternate kit filename described above. Do not delete existing content.
+
+Skill name conflicts: a kit skill conflicts when the target already has a skill with the same name. Check `.github/skills/`, `.claude/skills/`, and `.agents/skills/` for a `wt-<name>/` folder or a `SKILL.md` whose `name` is `wt-<name>`. This check is best-effort: VS Code recognizes other skill folders too, and when two folders hold a skill with the same name, both appear with no documented winner. Never overwrite or edit the existing skill. Rename the kit skill to an unused name, such as `wt-tracking-status`, changing the folder name and the `name` field together; if they differ, the skill silently fails to load. Add a one-line mapping to the installed AGENTS block, such as `Skill command: /wt-status is installed as /wt-tracking-status.`, and report each rename in step 5.
+
+Old kit prompts: if the target has `.github/prompts/wt-*.prompt.md` files from an earlier kit version, propose removing them, because they duplicate the skills' slash commands. Report each file as before → after → why, and remove nothing without the dev's approval. This is the only upgrade step the kit supports.
 
 Edits to existing project documents, including `README.md`, old work logs, and notes, are allowed when needed to adapt an existing tracking system. Include proposed edits in the plan. Do not replace whole files; report each changed file as before → after → why.
 
