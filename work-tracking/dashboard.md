@@ -6,9 +6,9 @@ Updated 261110. Read the [handbook](handbook.md) before changing tracking.
 
 ## Start here
 
-**Do now:** [question] WI-001 — Review decisions 30 and 31, then retest Local triage on the codebase-context-WTS-1109 copy. The triage procedure is copied; updating the copy's Tracking rules still needs approval.
+**Do now:** [build] [WI-001](#wi-001) — Start the real codebase-context pilot in a fresh VS Code chat in the target project; follow the [installation guide](../INSTALL.md), inspect first, and ask before installation edits. See the topic's Resume point for the import and review handoff.
 
-**Decisions you owe:** Accept the implementation of decisions 30 and 31. Phase 2 is paused.
+**Decisions you owe:** Accept the real pilot results after review.
 
 **Inbox:** See [Inbox](#inbox). 1 entry.
 
@@ -22,7 +22,7 @@ Updated 261110. Read the [handbook](handbook.md) before changing tracking.
 
 | Item | What it is | Status | Type | Who | Size | Do after | Links |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | ⏳ Waiting · Medium | [build] | both | L | - | Waits for acceptance of decisions 30 and 31: triage, checker, and Tracking-line changes |
+| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | 🔜 Next · Medium | [build] | both | L | - | Real codebase-context pilot and acceptance of its results remain |
 
 ## Inbox
 
