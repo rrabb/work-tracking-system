@@ -1,18 +1,18 @@
 # Work dashboard
 
-Updated 261110. Read the [handbook](handbook.md) before changing tracking.
+Updated 261112. Read the [handbook](handbook.md) before changing tracking.
 
 🔜 Next · 🔨 Active · 📋 Backlog · ⏳ Waiting · 💤 Deferred · ✅ Done · ❌ Dropped · ↪️ Superseded
 
 ## Start here
 
-**Do now:** [build] [WI-001](#wi-001) — Start the real codebase-context pilot in a fresh VS Code chat in the target project; follow the [installation guide](../INSTALL.md), inspect first, and ask before installation edits. See the topic's Resume point for the import and review handoff.
+**Do now:** Nothing is Next. [WI-001](#wi-001)'s real codebase-context pilot ran 261112; about 2 weeks of normal use there comes next. See the WI-001 topic's Resume point.
 
-**Decisions you owe:** Accept the real pilot results after review.
+**Decisions you owe:** Accept the real pilot results after the normal-use period.
 
 **Inbox:** See [Inbox](#inbox). 1 entry.
 
-**In flight:** Nothing active.
+**In flight:** [WI-001](#wi-001): normal use of the installed kit in codebase-context.
 
 **Import status:** Not run. Sources reviewed: none. Candidates: 0 filed, 0 rejected, 0 left. Report: none.
 
@@ -22,7 +22,7 @@ Updated 261110. Read the [handbook](handbook.md) before changing tracking.
 
 | Item | What it is | Status | Type | Who | Size | Do after | Links |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | 🔜 Next · Medium | [build] | both | L | - | Real codebase-context pilot and acceptance of its results remain |
+| <a name="wi-001"></a>[WI-001 Portable work-tracking kit](items/WI-001-portable-kit.md) | Build and pilot a self-contained copy-in work-tracking kit. | 🔨 Active · Medium | [build] | both | L | - | Real codebase-context pilot ran 261112; normal use and acceptance remain |
 
 ## Inbox
 

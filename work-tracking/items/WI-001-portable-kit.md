@@ -5,8 +5,8 @@
 - **Goal:** Build a self-contained copy-in work-tracking kit and pilot it on the approved projects.
 - **Progress as of 261110:** Phase 1 and Phase 2 assets are complete. The codebase-context sandbox and the 1109 Agent Host import retest succeeded. Decision 29 adds priority defaults and confirmation, an import priority proposal, and a shared answer-interpretation rule. Decisions 30 and 31 address triage, checker, and Tracking-line gaps; the dev accepted their implementation and behavior on 261110. The batch question, progress line, and priority confirmation worked in the reported Local retest. Both checker modes and regression tests passed, but acceptance does not mean the remaining paths were tested. The real codebase-context pilot and acceptance of its results remain.
 - **Decisions made:** The kit lives in its own repo, `work-tracking-system`, and is copied into each project. Project copies are self-contained forks. Collaboration is opt-in per project and defaults on. Full list: [Decisions and tradeoffs](#decisions-and-tradeoffs).
-- **Next:** Start the real codebase-context pilot in fresh target-project VS Code chats, beginning with inspection and the installation guide.
-- **Work in progress right now:** Pilot installation and import have not started; assess import quality and get the dev's acceptance of the results.
+- **Next:** About 2 weeks of normal use in codebase-context. The dev logs friction in that project's Inbox. Then review the results and decide acceptance.
+- **Work in progress right now:** The real codebase-context pilot ran 261112: install and import produced a usable tracker. Its review is in the exporter's WI-050. The README now has a Quick start, a command table, model and cost guidance, and an FAQ (261112). Possible kit follow-ups from the pilot are proposed, not approved: a private-source publication check, bounded chat-extraction guidance, and cost guidance in the procedures.
 
 ## Original goal
 
@@ -109,10 +109,14 @@ The minimal `template/work-tracking/check-tracking.mjs` checks dashboard WI anch
 
 ## Resume point
 
-The next phase is the real codebase-context pilot, focused on import quality. Do not install or import from this kit chat.
+**261112:** The real codebase-context pilot ran: install at `ed66150`, import at `bfa4a77`, section freezes at `42247e9`. The import filed 20 WI rows and 12 Inbox lines, rejected 3 candidates and left 1 for later. The review, cost breakdown and proposed follow-ups live in the exporter's [WI-050](../../../copilot-chat-exporter/work-items/WI-050-portable-work-tracking-kit.md#real-codebase-context-pilot-261112). Deviations: import ran in the install chat, not a new one, and Auto/Fusion Max routed across several models. Install plus import cost ~1,356 credits.
+
+Next: about 2 weeks of normal use in codebase-context, logging friction in its Inbox. Then review it with the dev. Don't change the kit's procedures for the proposed follow-ups without the dev's approval. The README FAQ and model guidance were added 261112 from the pilot findings.
+
+The steps below are the original pilot plan, kept for the next pilots (vsc-chat-tool, proj-ent-cfg-test).
 
 1. Open the target project in VS Code and start a fresh chat. Follow this kit's [INSTALL.md](../../INSTALL.md): inspect the target first and ask before installation edits.
-2. After installation, fully quit VS Code and reopen the target. Start another fresh chat and run `/wt-import` with a strong model.
+2. After installation, fully quit VS Code and reopen the target. Start another fresh chat and run `/wt-import` with one named strong model, not Auto or Fusion.
 3. Review the import recommendations before filing. Retiring or freezing source lists requires separate approval.
 4. Evaluate missed work, duplicates, unrelated or third-party TODOs, useful context, source links, sensible grouping, and faithful transfer of existing status and priorities. A passing checker is not proof of import quality. Review the results with the dev; their acceptance remains outstanding.
 
